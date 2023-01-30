@@ -62,9 +62,9 @@ class _MyAppState extends State<MyApp> {
               ),
               headline1: const TextStyle(
                 fontFamily: 'Roboto',
-                fontSize: 20,
+                fontSize: 25,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 240, 185, 21)
+                color: Colors.white
               ),
             ),
         colorScheme: ColorScheme.fromSwatch(
