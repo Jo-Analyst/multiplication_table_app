@@ -22,17 +22,22 @@ class _MyAppState extends State<MyApp> {
     return InkWell(
       onTap: onTap,
       child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,         
+        ),
         padding: const EdgeInsets.only(
           top: 10,
           bottom: 10,
           left: 25,
           right: 25,
         ),
-        color: Colors.white,
+        // color: Colors.white,
         child: Text(
           operator,
           style: const TextStyle(
             // backgroundColor: Colors.white,
+            color: Colors.black,
             fontSize: 40,
           ),
         ),
