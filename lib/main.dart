@@ -22,9 +22,10 @@ class _MyAppState extends State<MyApp> {
     return InkWell(
       onTap: onTap,
       child: Container(
+        width: 300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,         
+          color: const Color.fromARGB(255, 240, 185, 21),
         ),
         padding: const EdgeInsets.only(
           top: 10,
@@ -35,9 +36,10 @@ class _MyAppState extends State<MyApp> {
         // color: Colors.white,
         child: Text(
           operator,
+          textAlign: TextAlign.center,
           style: const TextStyle(
             // backgroundColor: Colors.white,
-            color: Colors.black,
+            color: Color.fromARGB(255, 8, 59, 100),
             fontSize: 40,
           ),
         ),
@@ -48,20 +50,27 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Roboto',
-        canvasColor: Colors.amber,
+        canvasColor: const Color.fromARGB(255, 240, 185, 21),
         appBarTheme: const AppBarTheme(backgroundColor: Colors.black87),
         textTheme: ThemeData.light().textTheme.copyWith(
-              headline1: const TextStyle(
+              headline6: const TextStyle(
                 fontFamily: "Teko",
                 fontSize: 20,
+              ),
+              headline1: const TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 240, 185, 21)
               ),
             ),
         colorScheme: ColorScheme.fromSwatch(
           primaryColorDark: Colors.black,
         ).copyWith(
-          secondary: Colors.amber,
+          secondary: const Color.fromARGB(255, 240, 185, 21),
         ),
       ),
       home: Builder(
@@ -69,45 +78,48 @@ class _MyAppState extends State<MyApp> {
           return Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: const Text(
+              title: Text(
                 "Vamos aprender a tabuada?",
-                style: TextStyle(fontSize: 20),
+                style: Theme.of(context).textTheme.headline1,
               ),
             ),
             body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _createButtonsOperator(
-                          "+",
-                          () => Navigator.of(context)
-                              .pushNamed(AppRoute.appSumScreen)),
-                      const SizedBox(width: 20),
-                      _createButtonsOperator(
-                          "-",
-                          () => Navigator.of(context)
-                              .pushNamed(AppRoute.appSubtractScreen))
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _createButtonsOperator(
-                          "*",
-                          () => Navigator.of(context)
-                              .pushNamed(AppRoute.appMultiplicationScreen)),
-                      const SizedBox(width: 20),
-                      _createButtonsOperator(
-                          "/",
-                          () => Navigator.of(context)
-                              .pushNamed(AppRoute.appDivisionScreen)),
-                    ],
-                  ),
-                ],
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.green,
+                ),
+                width: 330,
+                height: 400,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _createButtonsOperator(
+                      "Somar",
+                      () => Navigator.of(context)
+                          .pushNamed(AppRoute.appSumScreen),
+                    ),
+                    const SizedBox(height: 20),
+                    _createButtonsOperator(
+                      "Subtrair",
+                      () => Navigator.of(context)
+                          .pushNamed(AppRoute.appSubtractScreen),
+                    ),
+                    const SizedBox(height: 20),
+                    _createButtonsOperator(
+                      "Multiplicar",
+                      () => Navigator.of(context)
+                          .pushNamed(AppRoute.appMultiplicationScreen),
+                    ),
+                    const SizedBox(height: 20),
+                    _createButtonsOperator(
+                      "Dividir",
+                      () => Navigator.of(context)
+                          .pushNamed(AppRoute.appDivisionScreen),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
