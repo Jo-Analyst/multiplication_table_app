@@ -18,8 +18,6 @@ class _SubtractScreenState extends State<SubtractScreen> {
       numberInterator = value;
       qtdnumber = 0;
     });
-
-    print(numberInterator);
   }
 
   @override
