@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DivisionScreen extends StatefulWidget {
-  const DivisionScreen({super.key});
+class SubtractScreen extends StatefulWidget {
+  const SubtractScreen({super.key});
 
   @override
-  State<DivisionScreen> createState() => _DivisionScreenState();
+  State<SubtractScreen> createState() => _SubtractScreenState();
 }
 
-class _DivisionScreenState extends State<DivisionScreen> {
+class _SubtractScreenState extends State<SubtractScreen> {
   int numberInterator = 1;
   int qtdnumber = 0;
 
@@ -18,11 +18,13 @@ class _DivisionScreenState extends State<DivisionScreen> {
       numberInterator = value;
       qtdnumber = 0;
     });
+
+    print(numberInterator);
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget createContainerMultiplicationTable(int value) {
+    Widget createContainerMultiplicationTable() {
       return SingleChildScrollView(
         child: SizedBox(
           height: 300,
@@ -34,14 +36,14 @@ class _DivisionScreenState extends State<DivisionScreen> {
                 padding: const EdgeInsets.all(5),
                 child: Row(
                   children: [
-                     Card(
+                    Card(
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 5,
                           horizontal: 20,
                         ),
                         child: Text(
-                          '${(index + 1) * numberInterator}',
+                          '${(index + 1) + numberInterator}',
                           style: Theme.of(context).textTheme.headline6,
                         ),
                       ),
@@ -51,7 +53,7 @@ class _DivisionScreenState extends State<DivisionScreen> {
                         horizontal: 10,
                       ),
                       child: Text(
-                        '÷',
+                        '-',
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
@@ -76,7 +78,7 @@ class _DivisionScreenState extends State<DivisionScreen> {
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
-                   Card(
+                    Card(
                       elevation: 5,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -127,7 +129,7 @@ class _DivisionScreenState extends State<DivisionScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Tabuada de Divisão',
+          'Tabuada de Subtração',
           style: Theme.of(context).textTheme.headline1,
         ),
       ),
@@ -152,7 +154,7 @@ class _DivisionScreenState extends State<DivisionScreen> {
                 ),
                 child: Column(
                   children: [
-                    createContainerMultiplicationTable(1),
+                    createContainerMultiplicationTable(),
                   ],
                 ),
               ),

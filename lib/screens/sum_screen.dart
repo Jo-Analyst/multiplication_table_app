@@ -18,13 +18,11 @@ class _SumScreenState extends State<SumScreen> {
       numberInterator = value;
       qtdnumber = 0;
     });
-
-    print(numberInterator);
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget createContainerMultiplicationTable(int value) {
+    Widget createContainerMultiplicationTable() {
       return SingleChildScrollView(
         child: SizedBox(
           height: 300,
@@ -154,7 +152,7 @@ class _SumScreenState extends State<SumScreen> {
                 ),
                 child: Column(
                   children: [
-                    createContainerMultiplicationTable(1),
+                    createContainerMultiplicationTable(),
                   ],
                 ),
               ),

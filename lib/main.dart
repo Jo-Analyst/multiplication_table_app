@@ -4,7 +4,7 @@ import 'package:multiplication_table_app/screens/multiplication_screen.dart';
 import 'package:multiplication_table_app/screens/sum_screen.dart';
 
 import 'screens/division_screen.dart';
-import 'screens/subtarct_screen.dart';
+import 'screens/subtract_screen.dart';
 
 main() => runApp(const MyApp());
 
