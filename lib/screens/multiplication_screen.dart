@@ -39,7 +39,7 @@ class _MultiplicationScreenState extends State<MultiplicationScreen> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 5,
-                          horizontal: 20,
+                          horizontal: 15,
                         ),
                         child: Text(
                           '${index + 1}',
@@ -60,7 +60,7 @@ class _MultiplicationScreenState extends State<MultiplicationScreen> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 5,
-                          horizontal: 20,
+                          horizontal: 15,
                         ),
                         child: Text(
                           '$numberInterator',
@@ -81,7 +81,7 @@ class _MultiplicationScreenState extends State<MultiplicationScreen> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 5,
-                          horizontal: 20,
+                          horizontal: 15,
                         ),
                         child: Text(
                           '${(index + 1) * numberInterator}',
@@ -100,7 +100,7 @@ class _MultiplicationScreenState extends State<MultiplicationScreen> {
 
     Widget createButton(String number) {
       return Container(
-        width: 100,
+        width: 80,
         margin: const EdgeInsets.only(left: 10, bottom: 10),
         child: TextButton(
           style: TextButton.styleFrom(
