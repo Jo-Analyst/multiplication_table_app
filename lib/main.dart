@@ -54,18 +54,19 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Roboto',
         canvasColor: const Color.fromARGB(255, 240, 185, 21),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.black87),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black87,
+        ),
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: const TextStyle(
                 fontFamily: "Teko",
-                fontSize: 20,
+                fontSize: 40,
               ),
               headline1: const TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 25,
-                fontWeight: FontWeight.w700,
-                color: Colors.white
-              ),
+                  fontFamily: 'Roboto',
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white),
             ),
         colorScheme: ColorScheme.fromSwatch(
           primaryColorDark: Colors.black,

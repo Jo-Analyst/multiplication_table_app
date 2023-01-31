@@ -9,10 +9,14 @@ class SumScreen extends StatefulWidget {
 
 class _SumScreenState extends State<SumScreen> {
   int numberInterator = 1;
+  int qtdnumber = 0;
+
+  void performMultiplicationTables(int value) {}
 
   void changedNumberIterator(int value) {
     setState(() {
       numberInterator = value;
+      qtdnumber = 0;
     });
 
     print(numberInterator);
@@ -20,11 +24,89 @@ class _SumScreenState extends State<SumScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Widget createContainerMultiplicationTable(int value) {
+      return SingleChildScrollView(
+        child: SizedBox(
+          height: 300,
+          child: ListView.builder(
+            itemCount: qtdnumber == 0 ? 10 : 0,
+            itemBuilder: (ctx, index) {
+              return Container(
+                margin: const EdgeInsets.only(left: 40),
+                padding: const EdgeInsets.all(5),
+                child: Row(
+                  children: [
+                    Card(
+                      elevation: 5,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 20,
+                        ),
+                        child: Text(
+                          '${index + 1}',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Text(
+                        '+',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ),
+                    Card(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 20,
+                        ),
+                        child: Text(
+                          '$numberInterator',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Text(
+                        '=',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ),
+                    Card(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 20,
+                        ),
+                        child: Text(
+                          '${(index + 1) + numberInterator}',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+
     Widget createButton(String number) {
       return Container(
+        width: 100,
         margin: const EdgeInsets.only(left: 10, bottom: 10),
         child: TextButton(
           style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
             backgroundColor: Colors.green,
             padding: const EdgeInsets.symmetric(
               vertical: 10,
@@ -35,7 +117,6 @@ class _SumScreenState extends State<SumScreen> {
           child: Text(
             number,
             style: const TextStyle(
-              color: Colors.white,
               fontSize: 23,
               fontWeight: FontWeight.w700,
             ),
@@ -54,30 +135,26 @@ class _SumScreenState extends State<SumScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: const EdgeInsets.all(20),
+          margin:
+              const EdgeInsets.only(top: 20, left: 20, bottom: 0, right: 20),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 width: 400,
-                height: 450,
+                height: 325,
                 padding: const EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
+                  color: Colors.blue,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ),
+                  // border: Border.all(
+                  //   width: 2,
+                  // ),
                 ),
                 child: Column(
                   children: [
-                    Title(
-                        color: Theme.of(context).colorScheme.primary,
-                        child: Text(
-                          'Tabuada de adição',
-                          style: Theme.of(context).textTheme.headline1,
-                        ))
+                    createContainerMultiplicationTable(1),
                   ],
                 ),
               ),
@@ -116,25 +193,22 @@ class _SumScreenState extends State<SumScreen> {
                           createButton('1'),
                           createButton('2'),
                           createButton('3'),
-                          createButton('4'),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+                          createButton('4'),
                           createButton('5'),
                           createButton('6'),
-                          createButton('7'),
-                          createButton('8'),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+                          createButton('7'),
+                          createButton('8'),
                           createButton('9'),
-                          createButton('10'),
-                          createButton('11'),
-                          createButton('12'),
                         ],
                       ),
                     ],
